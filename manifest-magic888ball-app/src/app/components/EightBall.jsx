@@ -3,6 +3,8 @@ import { useState } from "react";
 import Image from 'next/image';
 import styles from "./EightBall.module.css";
 import Button from "./Button";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../lib/firebase"; // Import Firebase
 
 const UNIVERSE_SIGNS = [
   'Seeing 11:11 on the clock',
@@ -10,7 +12,6 @@ const UNIVERSE_SIGNS = [
   'A crusty white dog named Jewel',
   'Your Oura ring stops working',
   'Hearing the same random song on three different stations',
-
 ];
 
 export default function EightBall() {
@@ -19,17 +20,29 @@ export default function EightBall() {
   const [isShaking, setIsShaking] = useState(false);
   const [showAfterShake, setShowAfterShake] = useState(false);
 
-  const handleShake = () => {
+  const handleShake = async () => {
     if (!question.trim()) return;
-    
+
     setIsShaking(true);
     setShowAfterShake(false);
 
-    setTimeout(() => {
+    setTimeout(async () => {
       const randomSign = UNIVERSE_SIGNS[Math.floor(Math.random() * UNIVERSE_SIGNS.length)];
       setMessage(randomSign);
       setIsShaking(false);
       setShowAfterShake(true);
+
+      // Send data to Firestore
+      try {
+        await addDoc(collection(db, "entries"), {
+          question,
+          response: randomSign,
+          date: serverTimestamp() // Firebase timestamp
+        });
+        console.log("Entry saved to Firestore");
+      } catch (error) {
+        console.error("Error saving to Firestore:", error);
+      }
     }, 1500);
   };
 
