@@ -6,6 +6,64 @@
   align-items: center;
 }
 
+/* Container for the horizontal scroll */
+.horizontalScrollContainer {
+  width: 1000px; /* Same width as the pink container */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of boxes */
+  margin-top: 20px; /* Adjust spacing as needed */
+}
+
+/* Style for each white square box */
+.whiteBox {
+  display: inline-block; /* Display boxes in a row */
+  width: 300px; /* Adjust width as needed */
+  height: 300px; /* Make it square */
+  background: white;
+  border: 2px solid black;
+  margin-right: 20px; /* Spacing between boxes */
+  box-sizing: border-box; /* Include padding and border in the box's dimensions */
+  text-align: center;
+  padding: 20px; /* Add padding for better text spacing */
+  font-family: var(--font-vt323); /* Use your desired font */
+  font-size: 16px; /* Adjust font size */
+  color: black;
+  overflow: hidden; /* Prevent text overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5; /* Improve readability */
+}
+
+.horizontalWhiteBox {
+  width: 100%; /* Span the full width of the container */
+  height: 100px; /* Adjust height as needed */
+  background: white;
+  border: 2px solid black;
+  box-sizing: border-box; /* Include padding and border in the box's dimensions */
+  text-align: center;
+  padding: 20px; /* Add padding for better text spacing */
+  font-family: var(--font-vt323); /* Use your desired font */
+  font-size: 16px; /* Adjust font size */
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5; /* Improve readability */
+}
+
+.additionalBoxesContainer {
+  width: 100%; /* Span the full width of the pink container */
+  display: flex;
+  flex-direction: column; /* Stack boxes vertically */
+  gap: 20px; /* Spacing between boxes */
+  margin-top: 40px; /* Adjust spacing as needed */
+}
+
+/* Remove margin from the last box to avoid extra space */
+.whiteBox:last-child {
+  margin-right: 0;
+}
 
 .pinkContainer {
   width: 1000px;
@@ -17,6 +75,11 @@
   gap: 60px;
   background: #FFE8F6;
   border: 2px solid #000000;
+}
+
+.bottomTitle {
+  font-family: var(--font-bowlby);
+  text-align: center;
 }
 
 .titleContainer {
@@ -196,4 +259,79 @@
   25% { transform: translateX(-10px) rotate(-5deg); }
   50% { transform: translateX(10px) rotate(5deg); }
   75% { transform: translateX(-10px) rotate(-5deg); }
+}
+
+/* Carousel Container */
+.carouselContainer {
+  width: 1000px; /* Same width as the pink container */
+  position: relative;
+  margin-top: 20px; /* Adjust spacing as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Visible Boxes Container */
+.visibleBoxesContainer {
+  display: flex;
+  gap: 20px; /* Spacing between boxes */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Pagination Container */
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 20px; /* Adjust as needed */
+  gap: 20px; /* Space between arrows and dots */
+}
+
+/* Adjust Navigation Arrows */
+.navArrow {
+  background: transparent; /* Remove background */
+  color: #FFC3E7; /* Pink color */
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 24px;
+  position: relative; /* Keep within flex container */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for arrows */
+.navArrow:hover {
+  color: #FF80B3; /* Slightly darker pink on hover */
+}
+
+/* Position left arrow */
+.navArrow.left {
+  margin-right: auto; /* Push to left */
+}
+
+/* Position right arrow */
+.navArrow.right {
+  margin-left: auto; /* Push to right */
+}
+
+
+/* Pagination Dots */
+.paginationDots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.paginationDot {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.paginationDot.active {
+  background: #000; /* Highlight active dot */
 }
