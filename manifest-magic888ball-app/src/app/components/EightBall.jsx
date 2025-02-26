@@ -12,6 +12,50 @@ const UNIVERSE_SIGNS = [
   'A crusty white dog named Jewel',
   'Your Oura ring stops working',
   'Hearing the same random song on three different stations',
+  'Spotting a shooting star',
+  'A butterfly landing on your shoulder',
+  'Repeating number plates (e.g., 888, 777)',
+  'A stranger calls you by the wrong name',
+  'Seeing a rainbow',
+  'Finding a heart-shaped rock',
+  'A crow caws outside your window',
+  'Your phone dies exactly at 77%',
+  'A random podcast starts playing',
+  'Spotting a dandelion puff',
+  'Waking up at 3:33 a.m.',
+  'A fortune cookie message',
+  'Spotting a billboard',
+  'Three different people mention the same book',
+  'Hearing church bells',
+  'Finding exact change',
+  'Your pet staring at you intensely',
+  'Your GPS taking you on a detour',
+  'A street lamp flickers',
+  'Bumping into an old friend',
+  'Your watch stops',
+  'A random person compliments a talent',
+  'Finding a perfectly intact four-leaf clover',
+  'Sudden warmth on your skin',
+  'A dragonfly hovering near you',
+  'Receiving a text from someone you were just thinking about',
+  'A single balloon floats by',
+  'Spilling your drink',
+  'Seeing a random quote in graffiti',
+  'Finding a hidden door or path',
+  'A flicker of lights in your house',
+  'Hearing your name whispered',
+  'Noticing a repeating daydream',
+  'Receiving a free gift or sample',
+  'A child points at you and smiles',
+  'A random movie quote',
+  'Finding a message in a bottle',
+  'A street performer singing lyrics',
+  'Smelling a familiar scent',
+  'Seeing the same animal (fox, hawk, owl, etc.) repeatedly',
+  'A crystal or rock falls off your shelf',
+  'Wind chimes',
+  'Being handed a business card',
+  'A random polite stranger calls you “angel”',
 ];
 
 export default function EightBall() {
@@ -80,125 +124,125 @@ export default function EightBall() {
 
   return (
     <div className={styles.container}>
-      <div className="flex flex-col items-center">
-        <div className={styles.pinkContainer}>
-          <div className={styles.titleContainer}>
-            <h1 className={styles.shakeText}>SHAKE</h1>
-            <div className={styles.subtitle}>
-              TO GET YOUR SIGN{'\n'}FROM THE UNIVERSE!
+      <div className={styles.pinkContainer}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.shakeText}>SHAKE</h1>
+          <div className={styles.subtitleContainer}>
+            <div className={styles.subtitle}> TO GET YOUR SIGN  </div>
+            <div className={styles.subtitle}> FROM THE UNIVERSE! </div>
+          </div>
+        </div>
+        
+        <div className={styles.inputContainer}>
+          <textarea
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder="Type your question here..."
+            className={styles.questionInput}
+          />
+        </div>
+
+        <Button 
+          onClick={handleShake}
+          disabled={isShaking || !question.trim()}
+        >
+          SHAKE FOR YOUR SIGN
+        </Button>
+
+        <div className={`${styles.ballContainer} ${isShaking ? styles.shakeAnimation : ''}`}>
+          <div className={styles.ballOuter}>
+            {/* Top-left Light Reflection */}
+            <div className={styles.ballReflection}></div>
+
+            {/* Magic Ball Window */}
+            <div className={styles.ballWindow}>
+              {showAfterShake ? (
+                <div className={styles.responseOverlay}>
+                  <p className={styles.response}>{message}</p>
+                </div>
+              ) : (
+                <div className={styles.initialState}>
+                  <p className={styles.response}>{message}</p>
+                </div>
+              )}
             </div>
           </div>
+        </div>
 
-          <div className={styles.inputContainer}>
-            <textarea
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Type your question here"
-              className={styles.questionInput}
-            />
-          </div>
+        {showAfterShake && (
+        <div className={styles.buttonContainer}>
+        <button
+          onClick={() => {}}
+          className={`${styles.shareButton} ${showAfterShake ? styles.show : ""}`}
+        >
+          <span>SHARE YOUR SIGN!</span>
+        </button>
+      </div>      
+      )}
 
-          <Button 
-            onClick={handleShake}
-            disabled={isShaking || !question.trim()}
-          >
-            SHAKE FOR YOUR SIGN
-          </Button>
+        <div className={styles.manifestTitle}>
+          MANIFEST 888 BALL
+        </div>
+      </div>
+      
+      <div className={styles.middleContainer}>
+        <div className={styles.middletext}>
+          I SAW A LITTLE CRUSTY WHITE DOG NAMED JEWEL.
+        </div>
+      </div>
 
-          <div className={`${styles.ballContainer} ${isShaking ? styles.shakeAnimation : ''}`}>
-            <div className={styles.ballOuter}>
-              <div className={styles.ballWindow}>
-                {showAfterShake ? (
-                  <>
-                    <Image
-                      src="/after-shake.png"
-                      alt="Universe background"
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      priority
-                    />
-                    <div className={styles.responseOverlay}>
-                      <p className={styles.response}>{message}</p>
-                    </div>
-                  </>
-                ) : (
-                  <div className={styles.initialState}>
-                    <div className={styles.initialGradient} />
-                    <p className={styles.response}>{message}</p>
-                  </div>
-                )}
-              </div>
+
+      {/* Carousel Container */}
+      <div className={styles.carouselContainer}>
+        {/* Visible Boxes */}
+        <div className={styles.visibleBoxesContainer}>
+          {visibleBoxes.map((box, index) => (
+            <div key={index} className={styles.whiteBox}>
+              {box}
             </div>
-          </div>
-
-          {showAfterShake && (
-            <button onClick={() => {}} className={styles.shareButton}>
-              SHARE YOUR SIGN!
-            </button>
-          )}
-
-          <div className={styles.bottomTitle}>
-            MANIFEST 888 BALL
-          </div>
+          ))}
         </div>
-        <div className={`${styles.bottomTitle} text-white mt-4`} style={{ fontSize: '35px' }}>
-          I SAW A LITTLE CRUSTY WHITE DOG NAMED JEWEL
-        </div>
+      </div>
 
-        {/* Carousel Container */}
-        <div className={styles.carouselContainer}>
-          
-
-          {/* Visible Boxes */}
-          <div className={styles.visibleBoxesContainer}>
-            {visibleBoxes.map((box, index) => (
-              <div key={index} className={styles.whiteBox}>
-                {box}
-              </div>
-            ))}
-          </div>
-
-          
-        </div>
+      {/* Pagination Dots */}
+      <div className={styles.paginationContainer}>
+        {/* Left Arrow */}
+        <button className={`${styles.navArrow} ${styles.left}`} onClick={handlePrev}>
+          &#10094; {/* Left arrow */}
+        </button>
 
         {/* Pagination Dots */}
-        <div className={styles.paginationContainer}>
-          {/* Left Arrow */}
-          <button className={`${styles.navArrow} ${styles.left}`} onClick={handlePrev}>
-            &#10094; {/* Left arrow */}
-          </button>
+        <div className={styles.paginationDots}>
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <div
+              key={index}
+              className={`${styles.paginationDot} ${index === currentPage ? styles.active : ''}`}
+              onClick={() => setCurrentPage(index)}
+            />
+          ))}
+        </div>
 
-          {/* Pagination Dots */}
-          <div className={styles.paginationDots}>
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <div
-                key={index}
-                className={`${styles.paginationDot} ${index === currentPage ? styles.active : ''}`}
-                onClick={() => setCurrentPage(index)}
-              />
-            ))}
-          </div>
-
-          {/* Right Arrow */}
-          <button className={`${styles.navArrow} ${styles.right}`} onClick={handleNext}>
-            &#10095; {/* Right arrow */}
-          </button>
+        {/* Right Arrow */}
+        <button className={`${styles.navArrow} ${styles.right}`} onClick={handleNext}>
+          &#10095; {/* Right arrow */}
+        </button>
+      </div>
+      
+      <div className={`${styles.bottomTitle} text-white mt-4`} style={{ fontSize: '45px' }}>
+        THE MOST RECENTLY GENERATED SIGNS
+      </div>
+      
+      <div className={styles.additionalBoxesContainer}> 
+        <div className={styles.horizontalWhiteBox}>
+          A rainbow appears in your sky.
         </div>
-        <div className={`${styles.bottomTitle} text-white mt-4`} style={{ fontSize: '45px' }}>
-          THE MOST RECENTLY GENERATED SIGNS
+        <div className={styles.horizontalWhiteBox}>
+          You notice repeating numbers: 11:11 on the clock.
         </div>
-        <div className={styles.additionalBoxesContainer}  > 
-          <div className={styles.horizontalWhiteBox}>
-            A rainbow appears in your sky.
-          </div>
-          <div className={styles.horizontalWhiteBox}>
-            You notice repeating numbers: 11:11 on the clock.
-          </div>
-          <div className={styles.horizontalWhiteBox}>
-            A gentle rain starts after a long dry spell.
-          </div>
+        <div className={styles.horizontalWhiteBox}>
+          A gentle rain starts after a long dry spell.
         </div>
-        </div>
+      </div>
     </div>
   );
 }
