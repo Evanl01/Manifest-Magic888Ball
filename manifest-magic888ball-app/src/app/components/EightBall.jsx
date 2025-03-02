@@ -269,9 +269,9 @@ export default function EightBall() {
         )}
 
         {/* New Dog Banner */}
-        <div className={styles.dogBanner}>
+        {/* <div className={styles.dogBanner}>
           I SAW A LITTLE CRUSTY WHITE DOG NAMED JEWEL
-        </div>
+        </div> */}
 
         {/* Updated Reviews Section */}
         <div className={styles.reviewsContainer}>
@@ -283,7 +283,7 @@ export default function EightBall() {
               <div className={styles.reviewAuthor}>
                 <div className={styles.authorAvatar}>
                   <Image 
-                    src={`/avatars/avatar-${review.index + 1}.png`}
+                    src={`/avatars/avatar-${review.index + 1}.svg`}
                     alt="User avatar"
                     width={32}
                     height={32}
@@ -342,7 +342,7 @@ export default function EightBall() {
               <div className={styles.signUser}>
                 <div className={styles.avatarContainer}>
                   <Image 
-                    src={`/avatars/avatar-${(index % 3) + 1}.png`}
+                    src={`/avatars/avatar-${(index % 3) + 1}.svg`}
                     alt="User avatar"
                     width={36}
                     height={36}
@@ -365,7 +365,7 @@ export default function EightBall() {
         {/* Wave Divider */}
         <div className="w-full mt-10 relative">
           <svg className="w-full" viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,0 C240,80 480,20 720,60 C960,100 1200,40 1440,80 L1440,120 L0,120 Z" fill="white"></path>
+            <path d="M1085.25 91.4195C1232.75 20.2642 1504.51 119.383 1539.32 145.851H-27.3204V91.4195C232.075 44.9011 261.678 167.678 448.201 59.3755C522.038 16.503 619.378 -6.48379 725.337 1.58314C886.592 13.8599 911.55 175.217 1085.25 91.4195Z" fill="white"></path>
           </svg>
         </div>
 
@@ -374,9 +374,7 @@ export default function EightBall() {
           <div className="text-black text-sm">
             powered by
           </div>
-          <div className="font-bowlby text-[#FF69B4] text-3xl -webkit-text-stroke-[1px] -webkit-text-stroke-black shadow-[1px_1px_0px_#000000] mt-1">
-            MANIFEST
-          </div>
+          <h1 className={styles.manifestCompanyText}>MANIFEST</h1>
           <div className="text-black text-sm mt-2 text-center">
             We're the #1 resource to help you manifest your dreams.
           </div>
