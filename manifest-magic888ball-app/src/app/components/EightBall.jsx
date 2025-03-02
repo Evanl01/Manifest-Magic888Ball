@@ -262,16 +262,16 @@ export default function EightBall() {
           </div>
         </div>
         
-        {showAfterShake && (
+        {/* {showAfterShake && (
           <div className={`${styles.bottomTitle} text-white mt-4`} style={{ fontSize: '35px' }}>
             {message.toUpperCase()}
           </div>
-        )}
+        )} */}
 
         {/* New Dog Banner */}
-        {/* <div className={styles.dogBanner}>
+        <div className={styles.dogBanner}>
           I SAW A LITTLE CRUSTY WHITE DOG NAMED JEWEL
-        </div> */}
+        </div>
 
         {/* Updated Reviews Section */}
         <div className={styles.reviewsContainer}>
