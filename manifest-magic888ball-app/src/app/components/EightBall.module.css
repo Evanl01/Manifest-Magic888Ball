@@ -438,6 +438,7 @@
   -webkit-text-stroke: 2px #000000;
   text-shadow: 3px 3px 0px #000000;
   transition: transform 0.3s ease;
+  animation: shakeText 1s ease-in-out infinite;
 }
 
 .shakeText:hover {
