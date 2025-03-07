@@ -6,7 +6,6 @@
   align-items: center;
 }
 
-
 .pinkContainer {
   width: 1000px;
   height: auto;
@@ -54,7 +53,6 @@
   50% { transform: translateX(2px) rotate(2deg); }
   75% { transform: translateX(-2px) rotate(-2deg); }
 }
-
 
 .subtitle {
   width: 840px;
@@ -177,6 +175,13 @@
   cursor: pointer;
 }
 
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
 .bottomTitle {
   font-family: var(--font-bowlby);
   color: #FFC3E7;
@@ -190,6 +195,117 @@
 .shakeAnimation {
   animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) infinite;
 }
+
+/* Popup overlay to cover the whole screen */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Popup content box */
+.popupContent {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative; /* Important for absolute positioning of the close button */
+}
+
+/* Close button wrapper - absolute to the top-right */
+.closeButtonWrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000; /* Ensure it appears above the content */
+}
+
+/* Close button */
+.closeButton {
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #ff4081; /* Color change on hover */
+}
+
+/* Captured image styling */
+.capturedImage {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button row for sharing options */
+.buttonRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.downloadButton,
+.instagramButton,
+.tiktokButton,
+.pinterestButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background-color: #ff4081;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  flex: 1;
+  max-width: 150px;
+}
+
+.downloadButton:hover,
+.instagramButton:hover,
+.tiktokButton:hover,
+.pinterestButton:hover {
+  background-color: #f50057;
+  transform: translateY(-3px);
+}
+
+.downloadButton {
+  background-color: #00c853;
+}
+
+.instagramButton {
+  background-color: #e1306c;
+}
+
+.tiktokButton {
+  background-color: #010101;
+}
+
+.pinterestButton {
+  background-color: #bd081c;
+}
+
 
 @keyframes shake {
   0%, 100% { transform: translateX(0) rotate(0); }
