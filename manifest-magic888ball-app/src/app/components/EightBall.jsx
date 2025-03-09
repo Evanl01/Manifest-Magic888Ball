@@ -12,6 +12,50 @@ const UNIVERSE_SIGNS = [
   'A crusty white dog named Jewel',
   'Your Oura ring stops working',
   'Hearing the same random song on three different stations',
+  'Spotting a shooting star',
+  'A butterfly landing on your shoulder',
+  'Repeating number plates (e.g., 888, 777)',
+  'A stranger calls you by the wrong name',
+  'Seeing a rainbow',
+  'Finding a heart-shaped rock',
+  'A crow caws outside your window',
+  'Your phone dies exactly at 77%',
+  'A random podcast starts playing',
+  'Spotting a dandelion puff',
+  'Waking up at 3:33 a.m.',
+  'A fortune cookie message',
+  'Spotting a billboard',
+  'Three different people mention the same book',
+  'Hearing church bells',
+  'Finding exact change',
+  'Your pet staring at you intensely',
+  'Your GPS taking you on a detour',
+  'A street lamp flickers',
+  'Bumping into an old friend',
+  'Your watch stops',
+  'A random person compliments a talent',
+  'Finding a perfectly intact four-leaf clover',
+  'Sudden warmth on your skin',
+  'A dragonfly hovering near you',
+  'Receiving a text from someone you were just thinking about',
+  'A single balloon floats by',
+  'Spilling your drink',
+  'Seeing a random quote in graffiti',
+  'Finding a hidden door or path',
+  'A flicker of lights in your house',
+  'Hearing your name whispered',
+  'Noticing a repeating daydream',
+  'Receiving a free gift or sample',
+  'A child points at you and smiles',
+  'A random movie quote',
+  'Finding a message in a bottle',
+  'A street performer singing lyrics',
+  'Smelling a familiar scent',
+  'Seeing the same animal (fox, hawk, owl, etc.) repeatedly',
+  'A crystal or rock falls off your shelf',
+  'Wind chimes',
+  'Being handed a business card',
+  'A random polite stranger calls you “angel”',
 ];
 
 export default function EightBall() {
@@ -209,31 +253,37 @@ export default function EightBall() {
           </Button>
 
           <div className={`${styles.ballContainer} ${isShaking ? styles.shakeAnimation : ''}`}>
-            <div className={styles.ballOuter}>
-              <div className={styles.ballWindow}>
-                {showAfterShake ? (
-                  <>
-                    <Image
-                      src="/after-shake.png"
-                      alt="Universe background"
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      priority
-                    />
-                    <div className={styles.responseOverlay}>
-                      <p className={styles.response}>{message}</p>
-                    </div>
-                  </>
-                ) : (
-                  <div className={styles.initialState}>
-                    <div className={styles.initialGradient} />
-                    <p className={styles.response}>{message}</p>
-                  </div>
-                )}
+      <div className={styles.ballImageContainer}>
+        <Image 
+          src="/8ball.png" 
+          alt="8-Ball" 
+          width={500} 
+          height={500} 
+          priority 
+          className={styles.ballImage}
+        />
+        
+        <div className={styles.ballWindow}>
+          {showAfterShake ? (
+            <>
+              <Image 
+                src="/after-shake.png" 
+                alt="Final shake response" 
+                fill 
+                priority 
+                className={styles.afterShakeBackground} 
+              />
+              <div className={styles.responseOverlay}>
+                <p className={styles.response}>{message}</p>
               </div>
-            </div>
-          </div>
-
+            </>
+          ) : (
+            <p className={styles.response}>{message}</p>
+          )}
+        </div>
+      </div>
+    </div>
+    
           {showAfterShake && (
             <button 
               onClick={() => {
