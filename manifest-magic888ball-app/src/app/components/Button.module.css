@@ -1,24 +1,25 @@
 .shakeButton {
-    width: fit-content;
-    min-width: 200px;
-    height: 40px;
-    padding: 10px 20px;
-    gap: 8px;
-    border-radius: 4px 0px 0px 0px;
-    border: 1px solid #000000;
-    background: #BD3E8A;
-    box-shadow: 4px 4px 0px 0px #000000;
-    color: white;
-    font-family: var(--font-vt323);
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
+  width: 200px;
+  height: 40px;
+  border-width: 1px;
+  border-radius: 4px;
+  padding: 10px 20px;
+  background: #BD3E8A;
+  border: 1px solid #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+  color: white;
+  font-family: var(--font-vt323);
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
   .shakeButton:disabled {
     opacity: 0.5;
     cursor: not-allowed;

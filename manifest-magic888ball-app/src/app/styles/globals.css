@@ -7,11 +7,6 @@
   --background-rgb: 255, 232, 246;
 }
 
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
 
 html {
   scroll-behavior: smooth;
@@ -23,6 +18,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .bowlby-font {
@@ -32,3 +28,26 @@ body {
 .vt323-font {
   font-family: var(--font-vt323);
 }
+
+/* .starryBackground {
+  background: url('/space-background.png') repeat, linear-gradient(to bottom, #000000, #434343);
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px; 
+  box-sizing: border-box; 
+} */

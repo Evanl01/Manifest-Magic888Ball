@@ -20,6 +20,8 @@ export const metadata = {
   description: 'Get your sign from the universe',
 };
 
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${bowlbyOneSC.variable} ${vt323.variable}`}>
