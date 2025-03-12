@@ -1,0 +1,76 @@
+
+  .dogBanner {
+    width: 100%;
+    height: 96px;
+    font-family: var(--font-bowlby);
+    font-weight: 400;
+    font-size:42px;
+    line-height: 48px;
+    letter-spacing: -1%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto 5px;
+    /* padding: 0 20px; */
+    color: #FFC3E7;
+    -webkit-text-stroke: 2px #000000;
+    text-shadow: 3px 3px 0px #000000;
+  }
+  .starryBackground {
+    background: url('/space-background.png') repeat, linear-gradient(to bottom, #000000, #434343);
+    background-size: cover;
+      
+    width: 700px; /* Set explicit width */
+    height: 700px; /* Set explicit height *//* Set width to 70% of the popup container */
+    margin: 10px auto; /* Center horizontally */
+    padding: 20px;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Ensure content is stacked vertically */
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .eightBallContainer {
+    width: 70%; /* Set width to 70% */
+    justify-content: center;
+    margin: -15px 0px;
+    display: flex; /* Use flexbox to center content */
+
+    align-items: center;
+
+  }
+  
+  .result {
+    margin-top: 20px; /* Add some space between the eight ball and the result message */
+  }
+  
+  .message {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+  }
+
+  .linkButton {
+    /* width: 320px; */
+    height: 40px;
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 10px 20px;
+    background: #BD3E8A;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 0px 0px #000000;
+    color: white;
+    font-family: var(--font-vt323);
+    font-size: 30px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }

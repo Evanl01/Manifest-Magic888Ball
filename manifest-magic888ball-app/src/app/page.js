@@ -1,4 +1,4 @@
-import EightBall from './components/EightBall';
+import EightBall from './components/MainPage';
 
 export default function Home() {
   return (
