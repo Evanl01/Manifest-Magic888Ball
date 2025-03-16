@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { toPng, toBlob } from 'html-to-image';
-import { FaInstagram, FaTiktok, FaPinterest } from 'react-icons/fa';
+import { toPng, toBlob } from "html-to-image";
+import { FaInstagram, FaTiktok, FaPinterest } from "react-icons/fa";
 import styles from "./SharePopup.module.css";
 import ShareScreen from "./ShareScreen";
 
@@ -10,7 +10,7 @@ const SharePopup = ({ message, onClose }) => {
 
   useEffect(() => {
     const img = new Image();
-    img.src = '/8ball.png';
+    img.src = "/8ball.png";
     img.onload = () => setIsLoaded(true);
   }, []);
 
@@ -20,7 +20,6 @@ const SharePopup = ({ message, onClose }) => {
         onClose();
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -31,53 +30,11 @@ const SharePopup = ({ message, onClose }) => {
     window.location.href = "http://magic888.manifestapp.xyz/";
   };
 
-  const handleShare = async () => {
-    if (!isLoaded) {
-      console.error('Image not loaded yet');
-      return;
-    }
-
-    const targetElement = document.getElementById('shareScreen');
+  const captureImage = async () => {
+    const targetElement = document.getElementById("shareScreen");
     if (!targetElement) {
-      console.error('Target element not found');
-      return;
-    }
-
-    try {
-      const blob = await toBlob(targetElement, {
-        cacheBust: true,
-        width: targetElement.offsetWidth * 2,
-        height: targetElement.offsetHeight * 2,
-        style: {
-          transform: 'scale(2)',
-          transformOrigin: 'top left',
-          width: `${targetElement.offsetWidth}px`,
-          height: `${targetElement.offsetHeight}px`,
-        },
-      });
-
-      const file = new File([blob], 'screenshot.png', { type: 'image/png' });
-
-      if (navigator.share && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: 'Manifest Magic 888 Ball',
-          text: 'Shake to get your sign from the universe! https://magic888.manifestapp.xyz/',
-        });
-        console.log('Image shared successfully');
-      } else {
-        console.error('Web Share API is not supported in your browser.');
-      }
-    } catch (error) {
-      console.error('Error sharing image:', error);
-    }
-  };
-
-  const handleDownload = async () => {
-    const targetElement = document.getElementById('shareScreen');
-    if (!targetElement) {
-      console.error('Target element not found');
-      return;
+      console.error("Target element not found");
+      return null;
     }
 
     try {
@@ -86,22 +43,67 @@ const SharePopup = ({ message, onClose }) => {
         width: targetElement.offsetWidth * 2,
         height: targetElement.offsetHeight * 2,
         style: {
-          transform: 'scale(2)',
-          transformOrigin: 'top left',
+          transform: "scale(2)",
+          transformOrigin: "top left",
           width: `${targetElement.offsetWidth}px`,
           height: `${targetElement.offsetHeight}px`,
         },
       });
-
-      const link = document.createElement('a');
-      link.href = dataUrl;
-      link.download = 'Magic888Ball.png';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      return dataUrl;
     } catch (error) {
-      console.error('Error downloading image:', error);
+      console.error("Error capturing image:", error);
+      return null;
     }
+  };
+
+  const handleShare = async () => {
+    if (!isLoaded) {
+      console.error("Image not loaded yet");
+      return;
+    }
+
+    const dataUrl = await captureImage();
+    if (!dataUrl) return;
+
+    try {
+      const response = await fetch(dataUrl);
+      const blob = await response.blob();
+      const file = new File([blob], "screenshot.png", { type: "image/png" });
+
+      if (navigator.share && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: "Manifest Magic 888 Ball",
+          text: "Shake to get your sign from the universe! https://magic888.manifestapp.xyz/",
+        });
+        console.log("Image shared successfully");
+      } else {
+        console.error("Web Share API is not supported in your browser.");
+      }
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Share action was canceled by the user.");
+      } else {
+        console.error("Error sharing image:", error);
+      }
+    }
+  };
+
+  const handleDownload = async () => {
+    if (!isLoaded) {
+      console.error("Image not loaded yet");
+      return;
+    }
+
+    const dataUrl = await captureImage();
+    if (!dataUrl) return;
+
+    const link = document.createElement("a");
+    link.href = dataUrl;
+    link.download = "Magic888Ball.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (

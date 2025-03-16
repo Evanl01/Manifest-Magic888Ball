@@ -11,6 +11,7 @@ const EightBall = ({ message, isShaking, showAfterShake }) => {
           alt="8-Ball" 
           width={500} 
           height={500} 
+          unoptimized
           priority 
           className={styles.ballImage}
         />
