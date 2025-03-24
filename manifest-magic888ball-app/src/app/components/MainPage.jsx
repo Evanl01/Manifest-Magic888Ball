@@ -193,13 +193,7 @@ export default function MainPage() {
       <div className={styles.container}>
         {/* Starry Sky Background */}
         <div className={styles.starryBackground}>
-          <Image
-            src="/space-background.png"
-            alt="Starry sky background"
-            fill
-            priority
-            style={{ objectFit: "cover" }}
-          />
+        <img src="/space-background.png" alt="Starry sky background" className={styles.fullBackgroundImage} />
         </div>
         <div className="flex flex-col items-center relative z-10 px-4 sm:px-6 md:px-8 lg:px-16">
           <div className={styles.pinkContainer}>
