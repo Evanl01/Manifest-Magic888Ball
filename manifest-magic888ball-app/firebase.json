@@ -11,6 +11,7 @@
         "source": "/eightball",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "predeploy": ["npm run build"]
   }
 }
