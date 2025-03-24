@@ -1,9 +1,16 @@
 {
   "hosting": {
     "public": "out",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "rewrites": [
-      { "source": "/eightball", "destination": "/index.html" }
+      {
+        "source": "/eightball",
+        "destination": "/index.html"
+      }
     ]
   }
 }
