@@ -951,3 +951,36 @@
   }
 
 }
+
+@media (max-width: 550px) {
+  .reviewsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  .reviewBox {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .reviewText {
+    width: 100%;
+    font-size: clamp(14px, 4vw, 20px);
+    line-height: 1.5;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+
+  .authorName {
+    font-size: clamp(12px, 3vw, 16px);
+  }
+}
